@@ -16,7 +16,7 @@ if ($method == "POST") {
     $requestBody = file_get_contents('php://input');
     $json = json_decode($requestBody);
 
-    $city = implode('**', $json);
+    file_put_contents('test.json',$json);
 
     $messages = [];
     array_push($messages, array(

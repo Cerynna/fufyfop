@@ -54,10 +54,30 @@ class FirebaseConnect
 
     public function getData($path, &$list)
     {
-
-
         return $list = $this->database->getReference("$path")->getValue();
     }
 
+    public function updateUser($user, $info)
+    {
+        $arrayUser = $this->database->getReference("user")->getValue();
+
+        if (in_array($user, $arrayUser)) {
+            $userDB = $this->database->getReference("user/$user")->getKey();
+            return $userDB;
+        } else {
+            return false;
+            //SET in FIREBASE
+        }
+    }
+
+    public function addUser($user)
+    {
+        $newPost = $this->database
+            ->getReference("user")
+            ->push(
+                $user
+            );
+        $newPost->getValue();
+    }
 
 }

@@ -11,11 +11,17 @@ $response = new Response();
 $method = $request->server->get('REQUEST_METHOD');
 
 if ($method == "POST") {
+
+    $requestBody = file_get_contents('php://input');
+    $json = json_decode($requestBody);
+
+    $currencyName = $json->result->resolvedQuery->currencyName;
+
     $messages = [];
     array_push($messages, array(
             "type" => "simple_response",
             "platform" => "google",
-            "textToSpeech" => "jhbqguvhseo"
+            "textToSpeech" => $currencyName
         )
     );
 

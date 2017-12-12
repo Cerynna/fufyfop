@@ -9,14 +9,14 @@ $request = Request::createFromGlobals();
 $response = new Response();
 
 $method = $request->server->get('REQUEST_METHOD');
-var_dump($request);
+
 
 if ($method == "POST") {
 
     $requestBody = file_get_contents('php://input');
     $json = json_decode($requestBody);
 
-    $currencyName = $json->result->resolvedQuery->currencyName;
+    $currencyName = $json->result->user->userId;
 
     $messages = [];
     array_push($messages, array(

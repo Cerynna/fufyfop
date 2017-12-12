@@ -1,24 +1,16 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: cerynna
- * Date: 12/12/17
- * Time: 16:19
- */
 require 'vendor/autoload.php';
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-$response = new Response(
-    'Content',
-    Response::HTTP_OK,
-    array('content-type' => 'text/html')
-);
+
 
 $request = Request::createFromGlobals();
+$response = new Response();
 
 $method = $request->server->get('REQUEST_METHOD');
+
 
 $messages=[];
 array_push($messages, array(
@@ -28,13 +20,14 @@ array_push($messages, array(
     )
 );
 
+
+$response = new \stdClass();
 $response->source = "webhook";
 $response->messages = $messages;
 $response->contextOut = array();
+echo json_encode($response);
 
-json_encode($response);
 
-var_dump($response);
 
 
 

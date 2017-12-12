@@ -16,7 +16,7 @@ if ($method == "POST") {
     $requestBody = file_get_contents('php://input');
     $json = json_decode($requestBody);
 
-    $city = $json->result->originalRequest->device->location->city;
+    $city = implode('**', $json);
 
     $messages = [];
     array_push($messages, array(

@@ -11,8 +11,8 @@ $test = new FirebaseConnect();
 
 
 $user = [
-    "id" => "ABwppHGUYsaqlBoMViA8-m6svBKOWHMhGJpwJqVE8irtS9OQO8nl8NV4IWACdrjFYFD6mbimMDBhJ3356Quh",
-    "last_use" => new DateTime("now"),//datetime
+/*    "id" => "ABwppHGUYsaqlBoMViA8-m6svBKOWHMhGJpwJqVE8irtS9OQO8nl8NV4IWACdrjFYFD6mbimMDBhJ3356Quh",*/
+/*    "last_use" => new DateTime("now"),//datetime*/
     "last_action" => "",//action
     "commands" => [
 

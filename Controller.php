@@ -29,7 +29,9 @@ class Controller
             $requestBody = file_get_contents('php://input');
             $json = json_decode($requestBody);
 
-            $action = $json->result->resolvedQuery->action;
+            $allQuery = strtolower($json->result->resolvedQuery);
+            $action = strtolower($json->result->parameters->action);
+
             if (!empty($action))
             {
                 switch ($action){
@@ -43,6 +45,9 @@ class Controller
 
                         break;
                 }
+            }
+            else{
+                return $allQuery;
             }
         }
     }

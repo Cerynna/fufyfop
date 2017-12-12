@@ -57,50 +57,22 @@ class FirebaseConnect
         return $list = $this->database->getReference("$path")->getValue();
     }
 
-    public function updateUser($user, $info)
+    public function updateUser($idUser, $user)
     {
         $arrayUser = $this->database->getReference("user")->getValue();
 
         $verif = "";
         foreach ($arrayUser as $key => $userDB) {
-            if ($userDB['id'] == $user) {
+            if ($userDB['id'] == $idUser) {
                 $verif = $key;
             }
         }
         if (!empty($verif)) {
             $this->database->getReference("user/$verif")
-                ->set(
-                    [
-                        "id" => "$user",
-
-
-                        "last_use" => new DateTime("now"),//datetime
-                        "last_action" => "",//action
-                        "commands" => [
-
-                            0 => [
-                                "Sushi1" => 50,
-                                "sushi2" => 20
-
-                            ],
-                            1 => [
-                                "Sushi1" => 50,
-                                "sushi2" => 5
-
-                            ]
-
-                        ],
-                        "geoloc" => [
-                            "lati" => 20,
-                            "long" => 20
-                        ]
-
-                    ]
-                );
+                ->set($user);
             return "UPDATE";
         } else {
-            //SET
-            return "SET";
+            $this->addUser($user);
         }
 
     }

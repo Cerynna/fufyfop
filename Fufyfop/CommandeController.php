@@ -9,9 +9,6 @@
 class CommandeController
 {
 
-    public function setMessages()
-    {
-        return $messages;
-    }
+//
 
 }

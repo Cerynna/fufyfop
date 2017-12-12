@@ -16,13 +16,14 @@ if ($method == "POST") {
     $requestBody = file_get_contents('php://input');
     $json = json_decode($requestBody);
 
-    file_put_contents('test.json',$json->result);
+    file_put_contents('test.json',$json->result->);
+    $userName = $json->result->parameters->user_name;
 
     $messages = [];
     array_push($messages, array(
             "type" => "simple_response",
             "platform" => "google",
-            "textToSpeech" => "qdfbsroibh"
+            "textToSpeech" => "qdfbsroibh $userName"
         )
     );
 

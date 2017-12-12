@@ -16,13 +16,13 @@ if ($method == "POST") {
     $requestBody = file_get_contents('php://input');
     $json = json_decode($requestBody);
 
-    $currencyName = $json->result->originalRequest->data->user->profile->display_name;
+    $city = $json->result->originalRequest->device->location->city;
 
     $messages = [];
     array_push($messages, array(
             "type" => "simple_response",
             "platform" => "google",
-            "textToSpeech" => "TA MERE :" . $currencyName
+            "textToSpeech" => "TA MERE :" . $city
         )
     );
 

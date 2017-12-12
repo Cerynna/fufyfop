@@ -22,7 +22,7 @@ if ($method == "POST") {
     array_push($messages, array(
             "type" => "simple_response",
             "platform" => "google",
-            "textToSpeech" => "TA CITY  : $city"
+            "textToSpeech" => "TA JSON  : $city"
         )
     );
 

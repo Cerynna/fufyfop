@@ -5,27 +5,33 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 
-
 $request = Request::createFromGlobals();
 $response = new Response();
 
 $method = $request->server->get('REQUEST_METHOD');
 
+if ($method == "POST") {
+    $messages = [];
+    array_push($messages, array(
+            "type" => "simple_response",
+            "platform" => "google",
+            "textToSpeech" => "jhbqguvhseo"
+        )
+    );
 
-$messages=[];
-array_push($messages, array(
-        "type"=> "simple_response",
-        "platform"=> "google",
-        "textToSpeech"=> "jhbqguvhseo"
-    )
-);
+
+    $response = new \stdClass();
+    $response->source = "webhook";
+    $response->speech = "qljgnlsbn";
+    $response->messages = $messages;
+    $response->contextOut = array();
+    echo json_encode($response);
+} else {
+    echo "Method not allowed";
+}
 
 
-$response = new \stdClass();
-$response->source = "webhook";
-$response->messages = $messages;
-$response->contextOut = array();
-echo json_encode($response);
+
 
 
 

@@ -32,7 +32,7 @@ if ($method == "POST") {
     $response->speech = "qljgnlsbn";
     $response->messages = $messages;
     $response->contextOut = array();
-   // echo json_encode($response);
+    echo json_encode($response);
 } else {
     echo "Method not allowed";
 }

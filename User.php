@@ -109,7 +109,17 @@ class User
         return $this;
     }
 
+public function __construct($user)
+{
+    $this->setId($user['id']);
+    $this->setLastUse($user['last_use']);
+    $this->setLastAction($user['last_action']);
+    $this->setCommands($user['commands']);
+    $this->setGeoloc($user['geoloc']);
 
+    return $this;
+
+}
 
 
 }

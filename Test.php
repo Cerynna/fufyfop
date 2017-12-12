@@ -2,6 +2,7 @@
 
 
 require "FirebaseConnect.php";
+require "User.php";
 
 $test = new FirebaseConnect();
 
@@ -33,5 +34,12 @@ $user = [
     ]
 
 ];
+
+
+$testUser = new User($user);
+
+echo $testUser->getId();
+print_r($testUser->getCommands()) ;
+
 
 //$test->addUser($user);

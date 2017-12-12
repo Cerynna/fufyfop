@@ -71,7 +71,9 @@ class FirebaseConnect
             $this->database->getReference("user/$verif")
                 ->set(
                     [
-                        "id" => "ABwppHGUYsaqlBoMViA8-m6svBKOWHMhGJpwJqVE8irtS9OQO8nl8NV4IWACdrjFYFD6mbimMDBhJ3356Quh",
+                        "id" => "$user",
+
+
                         "last_use" => new DateTime("now"),//datetime
                         "last_action" => "",//action
                         "commands" => [

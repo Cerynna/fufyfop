@@ -17,7 +17,7 @@ if ($method == "POST") {
     $json = json_decode($requestBody);
 
     file_put_contents('test.json',$requestBody);
-    $userName = $json->result->originalRequest->data->user->userId;
+    $userName = $json->originalRequest->data->user->userId;
 
     $messages = [];
     array_push($messages, array(

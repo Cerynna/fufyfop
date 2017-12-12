@@ -16,7 +16,7 @@ if ($method == "POST") {
     $requestBody = file_get_contents('php://input');
     $json = json_decode($requestBody);
 
-    $currencyName = $json->result->user;
+    $currencyName = $json->result->originalRequest->data->user->profile->display_name;
 
     $messages = [];
     array_push($messages, array(

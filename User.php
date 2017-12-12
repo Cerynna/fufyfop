@@ -111,11 +111,11 @@ class User
 
 public function __construct($user)
 {
-    $this->setId($user['id']);
-    $this->setLastUse($user['last_use']);
-    $this->setLastAction($user['last_action']);
-    $this->setCommands($user['commands']);
-    $this->setGeoloc($user['geoloc']);
+    (!empty($user['id'])) ? $this->setId($user['id']) : $this->setId(null);
+    (!empty($user['last_use'])) ? $this->setLastUse($user['last_use']) : $this->setLastUse(null);
+    (!empty($user['last_action'])) ? $this->setLastAction($user['last_action']) : $this->setLastAction(null);
+    (!empty($user['commands'])) ? $this->setCommands($user['commands']) : $this->setCommands(null);
+    (!empty($user['geoloc'])) ? $this->setGeoloc($user['geoloc']) : $this->setGeoloc(null);
 
     return $this;
 

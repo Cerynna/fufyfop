@@ -230,7 +230,7 @@ class MongoDbSessionHandler extends AbstractSessionHandler
     }
 
     /**
-     * Create a date object using the class appropriate for the current mongo connection.
+     * Create a date object using the Fufyfop appropriate for the current mongo connection.
      *
      * Return an instance of a MongoDate or \MongoDB\BSON\UTCDateTime
      *

@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "sushishop-dff54",
+  "private_key_id": "49d22069a4e293f2b5903bd3b1913a0b46d914d7",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDfJaOl2RMqBLal\nx8+A+2mKj6jdQJRR5mDPTRMqejkFiTZRHommcJ2HqpAXhWbvK9oBWjATPWMrd6kO\nEJ0bO8dbKZDuS18m6e1/yNhuVkPc+L7o8Plba+eAL0B4IW0T7+x/p61U7iWpGJ1X\nHGiPwPwUVmfzwDSJ7AjfhG83UKO1EIAvf2JVOCJHjIbGCdHCVYYJvO6AKz1dVeTg\nQZw91d0P+8zIzYOn8WwxmHZgcUrfb06xQA0/5lu24nOoXZqPDZE5ZJ9mSrWqt2Sq\nvv5KRaQxKQw/XXdFWp4sEU21EmexlI5qdEooCA4rqQTKo58suOZNNjByDaJKj/5W\n8ifMdVQfAgMBAAECggEAL73oUNPsLzm58CcbRK/FiWEqEkg+U3V0MfX+C0ECESal\nqd5cOfFvKrb5xCaE+tfJeS+YCI3COWsNDtbMHicAhIcUnH8guP0klInekGDBfTX0\n9naUCxS/f2PcqbcRFMposXko8vpOsWp0Q05vKo5yAFHqRLLTKs0Gqve1KcMFe3fJ\nhgvjHZwnSyLQG7N+f3uG3UdXK7BTskfmkQXUXuGjWgD7RVi+eBIGadd+N7bYqUpM\naN1ZCAGOipR4jyhjlxSM8l+TkHE/BOTSQGMAnFZMowH8J7irQYEzAcRQdF7+dTWa\nm33wLX3j/ZPUK76sJMi2SJxmNQBP0k8BuvI4bpH3HQKBgQDxWk3X3v772GL4cMXr\nPfKb/NDl6v5QBVhpdHDm+D7tHU3wzq2V23vnaEZ8CfJFM1OEKANU1TpPsM05RXA3\ny4QInZtP+fBh4xjKs1nUrh+tImfgXc3NkDwbk5Eq5Z/DxyCdPaGzabA6RIh5PmPm\ntcp+FfVk9WVX1a9YYVIPkxRPFQKBgQDssHzzhDspBYMpAwfiQ3YtzJQF+KlfoCuM\njFozEDjlmjbxKLonpHKNV7H+cSti0gokNv2kWqrnreqYBxeVeZ5UINRieYwnNdEQ\nIFMBXSSIRgleUGzM4LN5a/3YXH1CoEerqpb7yrrLNngauSNlVDw2AFb9iswwTNwe\nomq6y1eDYwKBgQDXjUJGkMeD348MuZNZ9JqPy+w523VDvHJoxHDtJzr0BB8O+Vc4\npqxzUMLalvuD6EInnqDTDBinAY1YH/cILb/+/duvQtb4ZZ1Hs4SAGP77XuYNEVnz\nxGSacGHPQQM+E8LCDEA1fye/8mM8fYc1jpiJoUzn3O6k0phmw4xJkp8pvQKBgDga\n8dOLobZsnxWmqUTCNw5OMzxjIEsRnaEYV/1IuCP89U8fF1l0Ss8kXYXx75XiMhM5\nkdBWybJXcIePDtEY3iYVDiM1qrpUsHUBJIvrN1CyQWBA8jlyfjinF6ok6nBTrAmO\nS3HuMW8gP0IeZryLRiaK2BQLxbEhVwBQAbq7nsf/AoGAYZQretArl+d7JU3pWfro\nvp8KP10J51Iu5IpOn6QUJpWfOCw/TvNXoweeJ64fqwCMGbj7+hAnBr9Cz4wnpgHd\nCt9CeH+QfXeSirwQzYpLeS0sVFlrrzHlz/TGRyPpx4WkglbdOHBfpqAFrBpPLO6V\nU5FoV9HqW0iw8W8+hrNALJk=\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-adminsdk-j2udv@sushishop-dff54.iam.gserviceaccount.com",
+  "client_id": "111684492568444615812",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://accounts.google.com/o/oauth2/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-j2udv%40sushishop-dff54.iam.gserviceaccount.com"
+}

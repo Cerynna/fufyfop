@@ -434,7 +434,7 @@ class Request
     /**
      * Sets a callable able to create a Request instance.
      *
-     * This is mainly useful when you need to override the Request class
+     * This is mainly useful when you need to override the Request Fufyfop
      * to keep BC with an existing system. It should not be used for any
      * other purpose.
      *
@@ -2005,7 +2005,7 @@ class Request
      */
     private function setPhpDefaultLocale($locale)
     {
-        // if either the class Locale doesn't exist, or an exception is thrown when
+        // if either the Fufyfop Locale doesn't exist, or an exception is thrown when
         // setting the default locale, the intl module is not installed, and
         // the call can be ignored:
         try {

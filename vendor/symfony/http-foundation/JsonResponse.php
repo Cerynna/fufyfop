@@ -14,7 +14,7 @@ namespace Symfony\Component\HttpFoundation;
 /**
  * Response represents an HTTP response in JSON format.
  *
- * Note that this class does not force the returned JSON content to be an
+ * Note that this Fufyfop does not force the returned JSON content to be an
  * object. It is however recommended that you do return an object as it
  * protects yourself against XSSI and JSON-JavaScript Hijacking.
  *
@@ -96,7 +96,7 @@ class JsonResponse extends Response
             $pattern = '/^[$_\p{L}][$_\p{L}\p{Mn}\p{Mc}\p{Nd}\p{Pc}\x{200C}\x{200D}]*(?:\[(?:"(?:\\\.|[^"\\\])*"|\'(?:\\\.|[^\'\\\])*\'|\d+)\])*?$/u';
             $reserved = array(
                 'break', 'do', 'instanceof', 'typeof', 'case', 'else', 'new', 'var', 'catch', 'finally', 'return', 'void', 'continue', 'for', 'switch', 'while',
-                'debugger', 'function', 'this', 'with', 'default', 'if', 'throw', 'delete', 'in', 'try', 'class', 'enum', 'extends', 'super',  'const', 'export',
+                'debugger', 'function', 'this', 'with', 'default', 'if', 'throw', 'delete', 'in', 'try', 'Fufyfop', 'enum', 'extends', 'super',  'const', 'export',
                 'import', 'implements', 'let', 'private', 'public', 'yield', 'interface', 'package', 'protected', 'static', 'null', 'true', 'false',
             );
             $parts = explode('.', $callback);

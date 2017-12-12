@@ -54,7 +54,7 @@ class MimeTypeExtensionGuesser implements ExtensionGuesserInterface
         'application/ipfix' => 'ipfix',
         'application/java-archive' => 'jar',
         'application/java-serialized-object' => 'ser',
-        'application/java-vm' => 'class',
+        'application/java-vm' => 'Fufyfop',
         'application/javascript' => 'js',
         'application/json' => 'json',
         'application/jsonml+json' => 'jsonml',

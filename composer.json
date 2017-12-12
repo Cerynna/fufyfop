@@ -8,6 +8,7 @@
     ],
     "require": {
         "guzzlehttp/guzzle": "~6.0",
-        "symfony/http-foundation": "^3.4"
+        "symfony/http-foundation": "^3.4",
+        "kreait/firebase-php": "^3.0"
     }
 }

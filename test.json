@@ -1,61 +1,128 @@
 {
-  "id": "209eefa7-adb5-4d03-a8b9-9f7ae68a0c11",
-  "timestamp": "2016-10-10T07:41:40.098Z",
+  "originalRequest": {
+    "source": "google",
+    "version": "2",
+    "data": {
+      "isInSandbox": true,
+      "surface": {
+        "capabilities": [
+          {
+            "name": "actions.capability.AUDIO_OUTPUT"
+          },
+          {
+            "name": "actions.capability.MEDIA_RESPONSE_AUDIO"
+          }
+        ]
+      },
+      "inputs": [
+        {
+          "rawInputs": [
+            {
+              "query": "moi",
+              "inputType": "VOICE"
+            }
+          ],
+          "arguments": [
+            {
+              "rawText": "moi",
+              "textValue": "moi",
+              "name": "text"
+            }
+          ],
+          "intent": "actions.intent.TEXT"
+        }
+      ],
+      "user": {
+        "lastSeen": "2017-12-12T18:13:42Z",
+        "locale": "fr-CA",
+        "userId": "ABwppHGUYsaqlBoMViA8-m6svBKOWHMhGJpwJqVE8irtS9OQO8nl8NV4IWACdrjFYFD6mbimMDBhJ3356Quh"
+      },
+      "conversation": {
+        "conversationId": "1513102649958",
+        "type": "ACTIVE",
+        "conversationToken": "[]"
+      },
+      "availableSurfaces": [
+        {
+          "capabilities": [
+            {
+              "name": "actions.capability.AUDIO_OUTPUT"
+            },
+            {
+              "name": "actions.capability.SCREEN_OUTPUT"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "id": "336b9415-a89e-4c8e-a616-45152209b970",
+  "timestamp": "2017-12-12T18:17:35.727Z",
+  "lang": "fr-ca",
   "result": {
     "source": "agent",
-    "resolvedQuery": "Hi, my name is Sam!",
-    "action": "greetings",
+    "resolvedQuery": "moi",
+    "speech": "",
+    "action": "",
     "actionIncomplete": false,
     "parameters": {
-      "user_name": "Sam"
+      "currencyName": "",
+      "action": ""
     },
     "contexts": [
       {
-        "name": "greetings",
+        "name": "actions_capability_audio_output",
         "parameters": {
-          "user_name": "Sam",
-          "user_name.original": "Sam!"
+          "action.original": "",
+          "currencyName": "",
+          "action": "",
+          "currencyName.original": ""
         },
-        "lifespan": 5
+        "lifespan": 0
+      },
+      {
+        "name": "google_assistant_input_type_voice",
+        "parameters": {
+          "action.original": "",
+          "currencyName": "",
+          "action": "",
+          "currencyName.original": ""
+        },
+        "lifespan": 0
+      },
+      {
+        "name": "actions_capability_media_response_audio",
+        "parameters": {
+          "action.original": "",
+          "currencyName": "",
+          "action": "",
+          "currencyName.original": ""
+        },
+        "lifespan": 0
       }
     ],
     "metadata": {
-      "intentId": "373a354b-c15a-4a60-ac9d-a9f2aee76cb4",
+      "intentId": "9bccdb9a-a247-4389-a136-d443a45b5dba",
       "webhookUsed": "true",
-      "intentName": "greetings"
+      "webhookForSlotFillingUsed": "false",
+      "nluResponseTime": 5,
+      "intentName": "action_main"
     },
     "fulfillment": {
-      "speech": "Nice to meet you, Sam!"
-    },
-    "score": 1
-  },
-  "originalRequest": {
-    "data": {
-      "user": {
-        "user_id": "...",
-        "profile": {
-          "display_name": "Sam",
-          "given_name": "Sam",
-          "family_name": "Johnson"
-        },
-        "access_token": "..."
-      },
-      "device": {
-        "location": {
-          "coordinates": {
-            "latitude": 123.456,
-            "longitude": -123.456
-          },
-          "formatted_address": "1234 Random Road, Anytown, CA 12345, United States",
-          "zip_code": "12345",
-          "city": "Anytown"
+      "speech": "",
+      "messages": [
+        {
+          "type": 0,
+          "speech": ""
         }
-      }
-    }
+      ]
+    },
+    "score": 1.0
   },
   "status": {
     "code": 200,
-    "errorType": "success"
+    "errorType": "success",
+    "webhookTimedOut": false
   },
-  "sessionId": "37151f7c-a409-48b8-9890-cd980cd2548e"
+  "sessionId": "1513102649958"
 }

@@ -31,12 +31,12 @@ function uri_template($template, array $variables)
 }
 
 /**
- * Debug function used to describe the provided value type and class.
+ * Debug function used to describe the provided value type and Fufyfop.
  *
  * @param mixed $input
  *
  * @return string Returns a string containing the type of the variable and
- *                if a class is provided, the class name.
+ *                if a Fufyfop is provided, the Fufyfop name.
  */
 function describe_type($input)
 {

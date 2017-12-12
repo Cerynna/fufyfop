@@ -61,13 +61,46 @@ class FirebaseConnect
     {
         $arrayUser = $this->database->getReference("user")->getValue();
 
-        if (in_array($user, $arrayUser)) {
-            $userDB = $this->database->getReference("user/$user")->getKey();
-            return $userDB;
-        } else {
-            return false;
-            //SET in FIREBASE
+        $verif = "";
+        foreach ($arrayUser as $key => $userDB) {
+            if ($userDB['id'] == $user) {
+                $verif = $key;
+            }
         }
+        if (!empty($verif)) {
+            $this->database->getReference("user/$verif")
+                ->set(
+                    [
+                        "id" => "ABwppHGUYsaqlBoMViA8-m6svBKOWHMhGJpwJqVE8irtS9OQO8nl8NV4IWACdrjFYFD6mbimMDBhJ3356Quh",
+                        "last_use" => new DateTime("now"),//datetime
+                        "last_action" => "",//action
+                        "commands" => [
+
+                            0 => [
+                                "Sushi1" => 50,
+                                "sushi2" => 20
+
+                            ],
+                            1 => [
+                                "Sushi1" => 50,
+                                "sushi2" => 5
+
+                            ]
+
+                        ],
+                        "geoloc" => [
+                            "lati" => 20,
+                            "long" => 20
+                        ]
+
+                    ]
+                );
+            return "UPDATE";
+        } else {
+            //SET
+            return "SET";
+        }
+
     }
 
     public function addUser($user)

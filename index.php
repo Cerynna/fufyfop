@@ -23,7 +23,7 @@ array_push($messages, array(
 
 $response = new \stdClass();
 $response->source = "webhook";
-$response->fullfillmentMessages = $messages;
+$response->messages = $messages;
 $response->contextOut = array();
 echo json_encode($response);
 

@@ -57,12 +57,14 @@ class GameController
         $question = $this->getRandomQuestion();
 
         $key = $database->getKeyUser($userID);
+
+
         if ($key == false) {
 
             $questions = [];
             array_push($questions, $question);
 
-            $user->setGame(json_encode($questions));
+            $user->setGame($questions);
             $user->setLastUse(new DateTime('now'));
             $database->addUser(get_object_vars($user));
 
@@ -76,7 +78,7 @@ class GameController
                 $questions = [];
                 array_push($questions, $question);
 
-                $user->setGame(json_encode($questions));
+                $user->setGame($questions);
                 $user->setLastUse(new DateTime('now'));
                 $database->updateUser($key, $user);
 

@@ -34,7 +34,7 @@ class Controller
 
             if (!empty($action)) {
 
-                if ($action == 'jouer') {
+                if ($action === 'jouer') {
                     $this->setRes("Vous n'etes pas en $action");
                 }
 

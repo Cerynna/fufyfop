@@ -36,20 +36,20 @@ class Controller
                 switch ($action) {
                     case 'jouer':
                         $game = new GameController($json);
-                        return $this->setResponse("jouer");
+                        $this->setRes("jouer");
                         break;
                     case 'commander':
-                        return $this->setResponse("commander");
+                        $this->setRes("commander");
                         break;
                     case 'podcast':
-                        return $this->setResponse("podcast");
+                        $this->setRes("podcast");
                         break;
                 }
             } else {
-                return $this->setResponse($allQuery);
+                $this->setRes($allQuery);
             }
         } else {
-            return $this->setResponse("Vous n'etes pas en POST");
+            $this->setRes("Vous n'etes pas en POST");
         }
     }
 
@@ -74,7 +74,7 @@ class Controller
     /**
      * @return mixed
      */
-    public function getResponse()
+    public function getRes()
     {
         return $this->response;
     }
@@ -83,19 +83,19 @@ class Controller
      * @param mixed $response
      * @return Controller
      */
-    public function setResponse($response)
+    public function setRes($response)
     {
         $this->response = $response;
         return $this;
     }
 
-    public function makeResponse()
+    public function makeRes()
     {
         $messages = [];
         array_push($messages, array(
                 "type" => "simple_response",
                 "platform" => "google",
-                "textToSpeech" => $this->getResponse(),
+                "textToSpeech" => $this->getRes(),
             )
         );
 

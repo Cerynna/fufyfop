@@ -48,7 +48,7 @@ class GameController
 
     public function __construct($json)
     {
-       $userID = $json->originalRequest->data->user->userId;
+        $userID = $json->originalRequest->data->user->userId;
 
         $allQuery = strtolower($json->result->resolvedQuery);
 
@@ -64,23 +64,21 @@ class GameController
 
 
         $game = $user->getGame();
-
-        if (!isset($game['question'])){
+        $questions = [];
+        if (!isset($game['question'])) {
             $question = $this->getRandomQuestion();
             $questions = [
                 $question,
             ];
-            array_push($game,$questions);
+            array_push($game, $questions);
 
             $user->setGame($game);
-            $key = $database->updateUser($userID, get_object_vars($user) );
+            $key = $database->updateUser($userID, get_object_vars($user));
         }
-       $this->setGameResponse($key . " - " . implode('**', get_object_vars($questions))  );
-
+        $this->setGameResponse($key . " - " . implode('**', $questions));
 
 
         //verif firebase
-
 
 
     }

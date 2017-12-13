@@ -42,6 +42,9 @@ class Controller
             $this->setRes("$context");
 
             /*if (!empty($action)) {
+
+            //action_main-followup
+
                 switch ($action) {
                     case 'jouer':
                         $game = new GameController($json);

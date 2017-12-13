@@ -44,7 +44,7 @@ class Controller
             if (!empty($action)) {
             if (!empty($number))
                 {
-                $this->setRes($number);
+                $this->setRes($action);
             }
             //action_main-followup
                 switch ($action) {

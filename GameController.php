@@ -77,8 +77,11 @@ class GameController
                 array_push($questions, $question);
                 $user->setGame($questions);
                 $database->updateUserKey($key, get_object_vars($user));
-            }
 
+            }
+            else {
+                $this->setGameResponse("Plus de 1");
+            }
 
 
         } else {

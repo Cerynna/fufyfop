@@ -58,8 +58,8 @@ class Controller
             }
 
             else {
-                $numberimplode = implode('', $number);
-                $this->setRes("lachatemicantare " . $numberimplode);
+
+                $this->setRes("lachatemicantare " . $number);
             }
 
         } else {

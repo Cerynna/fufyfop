@@ -66,7 +66,7 @@ class GameController
 
             $questions = $user->getGame();
             $question = $this->getRandomQuestion();
-            array_push($questions, $questions);
+            array_push($question, $questions);
             $user->setGame($questions);
             $key = $database->updateUserKey($key, get_object_vars($user));
 

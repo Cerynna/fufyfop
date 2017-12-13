@@ -58,7 +58,7 @@ class GameController
             $user = new User('');
             $user->setId($userID);
 
-            $questions = [];
+            $questions = [ 0 => 1];
             array_push($questions, $question);
 
             $user->setGame($questions);

@@ -68,7 +68,8 @@ class GameController
             $user->setLastUse(new DateTime('now'));
             $database->addUser(get_object_vars($user));
 
-            $this->setGameResponse("Plus de 0");
+            $database->getData("quizz/question/$question", $quizz);
+            $this->setGameResponse($quizz['question']);
         } else {
 
             $database->getData("user/$key/game", $game);
@@ -82,19 +83,24 @@ class GameController
                 $user->setLastUse(new DateTime('now'));
                 $database->updateUser($key, $user);
 
-                $this->setGameResponse("VIDE");
+                $database->getData("quizz/question/$question", $quizz);
+                $this->setGameResponse($quizz['question']);
             }
             else {
-
-
+                if (count($game) <= self::MAX_GAME)
+                {
                     array_push($game, $question);
 
-                $user->setGame($game);
-                $user->setLastUse(new DateTime('now'));
-                $database->updateUser($key, $user);
+                    $user->setGame($game);
+                    $user->setLastUse(new DateTime('now'));
+                    $database->updateUser($key, $user);
+
+                    $database->getData("quizz/question/$question", $quizz);
+                    $this->setGameResponse($quizz['question']);
+                }
 
 
-                $this->setGameResponse("PLEIN");
+
             }
         }
 

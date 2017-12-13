@@ -44,7 +44,7 @@ class GameController
 
 // method getResponse == return response
 
-    public function __construct($json)
+    public function __construct()
     {
        /* $userID = $json->originalRequest->data->user->userId;
 

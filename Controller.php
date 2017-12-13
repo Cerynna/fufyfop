@@ -21,15 +21,19 @@ class Controller
 
     public function __construct()
     {
+        $database = new FirebaseConnect();
         $request = Request::createFromGlobals();
 
         $method = $request->server->get('REQUEST_METHOD');
 
         if ($method == "POST") {
 
+
             $requestBody = file_get_contents('php://input');
             $json = json_decode($requestBody);
             file_put_contents('inJSON.json', $json);
+
+            $userID = $json->originalRequest->data->user->userId;
 
             $allQuery = strtolower($json->queryResult->queryText);
 
@@ -53,7 +57,9 @@ class Controller
             } else {
 
                 if ($number == 1) {
-                    $this->setRes("Bonne reponse ");
+                    $key = $database->getKeyUser($userID);
+
+                    $this->setRes("Bonne reponse $key");
                 }
                 else {
                     $this->setRes("mauvaise reponse ");

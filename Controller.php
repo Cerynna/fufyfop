@@ -48,6 +48,11 @@ class Controller
                         break;
                 }
             }
+            elseif ($context == "action_main-followup")
+            {
+                $this->setRes("kqzrghpqetjh");
+            }
+
             elseif(!empty($responsequizz))
             {
                 $this->setRes("qremdjbhqeobhj");

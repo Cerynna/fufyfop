@@ -29,37 +29,37 @@ class Controller
 
             $requestBody = file_get_contents('php://input');
             $json = json_decode($requestBody);
-            file_put_contents('inJSON.json',$json);
+            file_put_contents('inJSON.json', $json);
 
             $allQuery = strtolower($json->queryResult->queryText);
 
             $context = strtolower($json->queryResult->outputContexts->name);
-            $context = array_pop(explode('/',$context));
+            $context = array_pop(explode('/', $context));
 
             $action = strtolower($json->queryResult->parameters->action);
 
-            $parameters = json_decode($json->queryResult->outputContexts->parameters) ;
+            $parameters = json_decode($json->queryResult->outputContexts->parameters);
 
             $responsequizz = strtolower($json->queryResult->parameters->response_quizz);
 
             if (!empty($action)) {
-            //action_main-followup
+                //action_main-followup
                 switch ($action) {
                     case 'jouer':
                         $game = new GameController($json);
                         $this->setRes($game->getGameResponse());
                         break;
                 }
-                if (!empty($context)){
+                if (!empty($context)) {
 
                     $this->setRes("");
                 }
 
-            }
+            } else {
 
-            else {
-
-                $this->setRes("lachatemicantare " .  get_object_vars($parameters->number)       );
+                if (in_array('1', $parameters->number)) {
+                    $this->setRes("IJUSTCALLTOSAYILOVEYOU ");
+                }
             }
 
         } else {

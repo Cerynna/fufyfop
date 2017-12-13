@@ -63,24 +63,13 @@ class GameController
 
         $user = new User($userDB);
 
-        $questions = [];
-        if (!isset($user->game) or empty($user->game)) {
-            $question = $this->getRandomQuestion();
-            $questions = [
-                $question,
-            ];
-            array_push($game, $questions);
 
-            $user->setGame($questions);
-            $key = $database->updateUserKey($key, get_object_vars($user));
-        }
-        else {
             $questions = $user->getGame();
             $question = $this->getRandomQuestion();
-            array_push($game, $questions);
+            array_push($questions, $questions);
             $user->setGame($questions);
             $key = $database->updateUserKey($key, get_object_vars($user));
-        }
+
         $this->setGameResponse($key . " - " . implode('**', get_object_vars($user)));
 
 

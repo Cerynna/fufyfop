@@ -29,12 +29,12 @@ class Controller
 
             $requestBody = file_get_contents('php://input');
             $json = json_decode($requestBody);
-            file_put_contents('inJSON.json',$json);
+            file_put_contents('inJSON.json', $json);
 
             $allQuery = strtolower($json->queryResult->queryText);
 
             $context = strtolower($json->queryResult->outputContexts->name);
-            $context = array_pop(explode('/',$context));
+            $context = array_pop(explode('/', $context));
 
             $action = strtolower($json->queryResult->parameters->action);
             $responsequizz = strtolower($json->queryResult->parameters->response_quizz);
@@ -42,38 +42,26 @@ class Controller
 
             if (!empty($action)) {
 
-            //action_main-followup
+                //action_main-followup
                 switch ($action) {
                     case 'jouer':
                         $game = new GameController($json);
                         $this->setRes($game->getGameResponse());
                         break;
                 }
-            }
-            elseif ($context === "action_main-followup")
-            {
-                $this->setRes("kqzrghpqetjh");
-            }
-
-            elseif(!empty($responsequizz))
-            {
-                $this->setRes("qremdjbhqeobhj");
-            }
-            else {
-
-                    $this->setRes("iycfjuygujh");
 
 
+            } else {
+                $this->setRes("Vous n'etes pas en POST");
             }
-        } else {
-            $this->setRes("Vous n'etes pas en POST");
         }
     }
 
     /**
      * @return mixed
      */
-    public function getRequest()
+    public
+    function getRequest()
     {
         return $this->request;
     }
@@ -82,7 +70,8 @@ class Controller
      * @param mixed $request
      * @return Controller
      */
-    public function setRequest($request)
+    public
+    function setRequest($request)
     {
         $this->request = $request;
         return $this;
@@ -91,7 +80,8 @@ class Controller
     /**
      * @return mixed
      */
-    public function getRes()
+    public
+    function getRes()
     {
         return $this->response;
     }
@@ -100,13 +90,15 @@ class Controller
      * @param mixed $response
      * @return Controller
      */
-    public function setRes($response)
+    public
+    function setRes($response)
     {
         $this->response = $response;
         return $this;
     }
 
-    public function makeRes()
+    public
+    function makeRes()
     {
 
         $response = new \stdClass();

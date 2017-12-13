@@ -65,7 +65,7 @@ class GameController
 
         $game = $user->getGame();
         $questions = [];
-        if (!isset($game['question'])) {
+        if (!isset($game['question']) or empty($game)) {
             $question = $this->getRandomQuestion();
             $questions = [
                 $question,
@@ -75,7 +75,7 @@ class GameController
             $user->setGame($game);
             $key = $database->updateUser($userID, get_object_vars($user));
         }
-        $this->setGameResponse($key . " - " . implode('**', $questions));
+        $this->setGameResponse($key . " - " . implode('**', $game));
 
 
         //verif firebase

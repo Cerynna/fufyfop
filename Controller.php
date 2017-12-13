@@ -106,7 +106,7 @@ class Controller
         $response->source = "webhook";
 
         $response->fulfillmentText = "Salut les petits PD";
-        $response->fulfillmentMessages->simpleResponses = [
+        /*$response->fulfillmentMessages->simpleResponses = [
             [
                 "textToSpeech" => "simple_response",
                 "ssml" => "google",
@@ -118,7 +118,7 @@ class Controller
                 "displayText" => $this->getRes(),
             ],
         ];
-
+*/
         return json_encode($response);
     }
 

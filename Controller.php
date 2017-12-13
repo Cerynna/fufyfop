@@ -42,15 +42,14 @@ class Controller
 
 
             if (!empty($action)) {
-            if (!empty($number))
-                {
-                $this->setRes($action);
-            }
             //action_main-followup
                 switch ($action) {
                     case 'jouer':
                         $game = new GameController($json);
                         $this->setRes($game->getGameResponse());
+                        break;
+                    case 'action_main.action_main-selectnumber':
+                        $this->setRes("action_main.action_main-selectnumber");
                         break;
                 }
                 if (!empty($context)){

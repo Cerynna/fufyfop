@@ -93,32 +93,10 @@ class Controller
 
     public function makeRes()
     {
-        $messages = [];
-        array_push($messages, array(
-                "textToSpeech" => "simple_response",
-                "ssml" => "google",
-                "displayText" => $this->getRes(),
-            )
-        );
-
 
         $response = new \stdClass();
         $response->source = "webhook";
-
-        $response->fulfillmentText = "Salut les petits PD";
-        /*$response->fulfillmentMessages->simpleResponses = [
-            [
-                "textToSpeech" => "simple_response",
-                "ssml" => "google",
-                "displayText" => $this->getRes(),
-            ],
-            [
-                "textToSpeech" => "simple_response",
-                "ssml" => "google",
-                "displayText" => $this->getRes(),
-            ],
-        ];
-*/
+        $response->fulfillmentText = $this->getRes();
         return json_encode($response);
     }
 

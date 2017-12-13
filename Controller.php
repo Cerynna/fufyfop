@@ -106,7 +106,6 @@ class Controller
         $response = new \stdClass();
         $response->source = "webhook";
         $response->fulfillmentText = "Salut";
-        $response->contextOut = array();
         return json_encode($response);
     }
 

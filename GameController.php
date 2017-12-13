@@ -52,7 +52,6 @@ class GameController
 
         $allQuery = strtolower($json->result->resolvedQuery);
 
-
         $pikachu = ["id" => $userID];
 
         $database = new FirebaseConnect();
@@ -63,7 +62,6 @@ class GameController
 
         $user = new User($userDB);
 
-
         $questions = $user->getGame();
 
         if (count($questions) <= self::MAX_GAME) {
@@ -72,7 +70,7 @@ class GameController
             {
                 $database->getData("quizz/question/$question", $quest);
 
-                $this->setGameResponse($quest['question']);
+                $this->setGameResponse($key . " - " . $quest['question']);
 
                 array_push($questions, $question);
                 $user->setGame($questions);

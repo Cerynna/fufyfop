@@ -59,7 +59,7 @@ class Controller
 
             else {
 
-                $this->setRes("lachatemicantare " .  get_object_vars($parameters['number'])       );
+                $this->setRes("lachatemicantare " .  get_object_vars($parameters->number)       );
             }
 
         } else {

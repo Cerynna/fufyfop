@@ -13,9 +13,9 @@ use Symfony\Component\HttpFoundation\Response;
 class Controller
 {
 
-    private $request;
+    public $request;
 
-    private $response;
+    public $response;
 
 
     public function __construct()
@@ -86,7 +86,7 @@ class Controller
     public function setResponse($response)
     {
         $this->response = $response;
-        return $this;
+        return $this;getResponse
     }
 
     public function makeResponse()

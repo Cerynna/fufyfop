@@ -78,9 +78,7 @@ class GameController
                 $user->setGame($questions);
                 $database->updateUserKey($key, get_object_vars($user));
             }
-            else {
 
-            }
 
 
         } else {

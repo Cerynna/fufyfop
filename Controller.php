@@ -66,7 +66,7 @@ class Controller
                         $newQuizz = 1;
                     }
 
-                    array_push($game, $newQuizz);
+                   /* array_push($game, $newQuizz);
 
                     $user = new User('');
                     $user->setId($userID);
@@ -74,10 +74,10 @@ class Controller
                     $user->setLastUse(new DateTime('now'));
                     $user->setLastAction("quizz");
 
-                    $database->addUser(get_object_vars($user));
+                    $database->addUser(get_object_vars($user));*/
 
 
-                    $this->setRes([$quizz['goodResponse'], ]);
+                    $this->setRes([$quizz['goodResponse'], $newQuizz]);
                 }
                 else {
                     $this->setRes($quizz['badResponse']);

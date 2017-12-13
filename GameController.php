@@ -89,7 +89,7 @@ class GameController
 
                     array_push($game, $question);
 
-                $user->setGame(json_encode($game));
+                $user->setGame($game);
                 $user->setLastUse(new DateTime('now'));
                 $database->updateUser($key, $user);
 

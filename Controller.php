@@ -34,7 +34,6 @@ class Controller
             $allQuery = strtolower($json->queryResult->queryText);
 
             $context = strtolower($json->queryResult->outputContexts->name);
-            $number = strtolower($json->queryResult->outputContexts->parameters);
             $context = array_pop(explode('/',$context));
 
             $action = strtolower($json->queryResult->parameters->action);
@@ -59,7 +58,7 @@ class Controller
 
             else {
 
-                $this->setRes("lachatemicantare " . json_decode(json_encode($number))   );
+                $this->setRes("lachatemicantare " . $number   );
             }
 
         } else {

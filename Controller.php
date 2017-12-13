@@ -86,7 +86,7 @@ class Controller
     public function setResponse($response)
     {
         $this->response = $response;
-        return $this;getResponse
+        return $this;
     }
 
     public function makeResponse()

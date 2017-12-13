@@ -33,12 +33,10 @@ class Controller
             $action = strtolower($json->result->parameters->action);
 
             if (!empty($action)) {
-                $this->setRes("$action");
-
-                /*switch ($action) {
+                switch ($action) {
                     case 'jouer':
                         $game = new GameController($json);
-                        $this->setRes("jouer");
+                        $this->setRes("GAME jouer");
                         break;
                     case 'commander':
                         $this->setRes("commander");
@@ -46,7 +44,7 @@ class Controller
                     case 'podcast':
                         $this->setRes("podcast");
                         break;
-                }*/
+                }
             } else {
                 $this->setRes($allQuery);
             }

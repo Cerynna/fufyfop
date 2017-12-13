@@ -102,14 +102,23 @@ class Controller
         );
 
 
-
         $response = new \stdClass();
         $response->source = "webhook";
 
         $response->fulfillmentText = "Salut les petits PD";
-        $response->fulfillmentMessages->simpleResponses->textToSpeech = "fdghdgj";
-        $response->fulfillmentMessages->simpleResponses->ssml = "fdghdgj";
-        $response->fulfillmentMessages->simpleResponses->displayText = "fdghdgj";
+        $response->fulfillmentMessages->simpleResponses = [
+            [
+                "textToSpeech" => "simple_response",
+                "ssml" => "google",
+                "displayText" => $this->getRes(),
+            ],
+            [
+                "textToSpeech" => "simple_response",
+                "ssml" => "google",
+                "displayText" => $this->getRes(),
+            ],
+        ];
+
         return json_encode($response);
     }
 

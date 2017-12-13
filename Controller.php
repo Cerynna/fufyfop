@@ -33,7 +33,13 @@ class Controller
             $action = strtolower($json->result->parameters->action);
 
             if (!empty($action)) {
-                $this->setRes("$action");
+
+                if($action == "jouer")
+                {
+                    $this->setRes("$action");
+                }
+
+
 
                 /*switch ($action) {
                     case 'jouer':

@@ -46,10 +46,9 @@ class Controller
                         break;
                 }
             } else {
-                if ($context === "action_main-followup")
-                {
+
                     $this->setRes($context);
-                }
+
 
 
 

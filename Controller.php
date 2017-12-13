@@ -50,6 +50,9 @@ class Controller
                         break;
                 }
             }
+            else {
+                $this->setRes("lachatemicantare");
+            }
 
 
         } else {

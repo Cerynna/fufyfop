@@ -95,7 +95,7 @@ class Controller
         array_push($messages, array(
                 "type" => "simple_response",
                 "platform" => "google",
-                "textToSpeech" => "qdfbsroibh"
+                "textToSpeech" => "MAKE CARD !!!!"
             )
         );
 

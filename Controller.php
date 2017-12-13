@@ -61,23 +61,7 @@ class Controller
                 $database->getData("quizz/question/$idGame", $quizz);
 
                 if ($number == 1) {
-                    $newQuizz = $database->getRandomQuestion();
-                    if ($newQuizz == 0) {
-                        $newQuizz = 1;
-                    }
-
-                   /* array_push($game, $newQuizz);
-
-                    $user = new User('');
-                    $user->setId($userID);
-                    $user->setGame($game);
-                    $user->setLastUse(new DateTime('now'));
-                    $user->setLastAction("quizz");
-
-                    $database->addUser(get_object_vars($user));*/
-
-
-                    $this->setRes([$quizz['goodResponse'], $newQuizz]);
+                    $this->setRes($quizz['goodResponse']);
                 }
                 else {
                     $this->setRes($quizz['badResponse']);
@@ -127,25 +111,11 @@ class Controller
 
     public function makeRes()
     {
-        $myResponse = $this->getRes();
 
-        if(is_array($myResponse)){
-            foreach ($myResponse as $oneReponse){
-                $response = new \stdClass();
-                $response->source = "webhook";
-                $response->fulfillmentText = $oneReponse;
-                return json_encode($response);
-            }
-
-        }
-        else {
             $response = new \stdClass();
             $response->source = "webhook";
-            $response->fulfillmentText = $myResponse;
+            $response->fulfillmentText = $this->getRes();
             return json_encode($response);
-        }
-
-
 
     }
 

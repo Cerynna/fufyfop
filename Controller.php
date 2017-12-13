@@ -42,7 +42,6 @@ class Controller
 
             $responsequizz = strtolower($json->queryResult->parameters->response_quizz);
 
-[]
             if (!empty($action)) {
             //action_main-followup
                 switch ($action) {

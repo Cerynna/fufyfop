@@ -44,9 +44,9 @@ class GameController
 
 // method getResponse == return response
 
-    public function __construct()
+    public function __construct($json)
     {
-       /* $userID = $json->originalRequest->data->user->userId;
+       $userID = $json->originalRequest->data->user->userId;
 
         $allQuery = strtolower($json->result->resolvedQuery);
 
@@ -72,7 +72,7 @@ class GameController
             $database->updateUser($userID, $user);
         }
        $this->setGameResponse("LOL");
-       */
+
 
 
         //verif firebase

@@ -38,7 +38,7 @@ class Controller
 
             $action = strtolower($json->queryResult->parameters->action);
 
-            $number = json_decode($json->queryResult->outputContexts->parameters->number) ;
+            $parameters = json_decode($json->queryResult->outputContexts->parameters) ;
 
             $responsequizz = strtolower($json->queryResult->parameters->response_quizz);
 
@@ -59,7 +59,7 @@ class Controller
 
             else {
 
-                $this->setRes("lachatemicantare " . $number    );
+                $this->setRes("lachatemicantare " . $parameters['number']    );
             }
 
         } else {

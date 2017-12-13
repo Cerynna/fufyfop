@@ -50,22 +50,24 @@ class GameController
     {
         $userID = $json->originalRequest->data->user->userId;
 
-
         $database = new FirebaseConnect();
+        $question = $this->getRandomQuestion();
 
         $key = $database->getKeyUser($userID);
-        /*echo $key;*/
-        $database->getData("user/$key", $userDB);
-        /*print_r($userDB);*/
+        if ($key == false) {
+            $user = new User('');
+            $user->setId($userID);
+            $user->setGame($question);
+            $user->setLastUse(new DateTime('now'));
+            $database->addUser(get_object_vars($user));
+        }
 
-        $user = new User($userDB);
 
         $questions = $user->getGame();
 
         if (count($questions) <= self::MAX_GAME) {
             $question = $this->getRandomQuestion();
-            if (count($questions) < 1)
-            {
+            if (count($questions) < 1) {
                 $database->getData("quizz/question/$question", $quest);
 
                 $this->setGameResponse($key . " - " . $quest['question']);
@@ -74,8 +76,7 @@ class GameController
                 $user->setGame($questions);
                 $database->updateUserKey($key, get_object_vars($user));
 
-            }
-            else {
+            } else {
                 $this->setGameResponse("Plus de 1");
             }
 

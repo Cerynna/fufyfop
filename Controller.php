@@ -58,7 +58,7 @@ class Controller
             }
 
             else {
-                $this->setRes("lachatemicantare " . serialize($number));
+                $this->setRes("lachatemicantare " . implode('',$number));
             }
 
 

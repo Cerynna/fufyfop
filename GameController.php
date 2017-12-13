@@ -58,7 +58,7 @@ class GameController
             $user = new User('');
             $user->setId($userID);
 
-            $questions = [ 0 => 1];
+            $questions = [];
             array_push($questions, $question);
 
             $user->setGame(json_encode($questions));
@@ -66,13 +66,19 @@ class GameController
             $database->addUser(get_object_vars($user));
 
             $this->setGameResponse("Plus de 0");
-        }
-        else {
+        } else {
+
+            $database->getData("user/$key/game", $game);
+            if(empty($game))
+            {
+                $this->setGameResponse("VIDE");
+            }
+            else {
+                $this->setGameResponse("PLEIN");
+            }
+
             $this->setGameResponse("Plus de 1");
         }
-
-
-
 
 
         //verif firebase

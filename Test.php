@@ -4,9 +4,15 @@
 require "FirebaseConnect.php";
 require "User.php";
 
+$database = new FirebaseConnect();
 
+$database->getData("user/-L0DQcyQSm1oS80gdBZP/game", $game);
 
-$requestBody = file_get_contents('test.json');
-$json = json_decode($requestBody);
-$userID = $json->originalRequest->data->user->userId;
-echo $userID;
+if(empty($game))
+{
+    echo "IL est vide";
+}
+else {
+    echo "il est remplis";
+}
+

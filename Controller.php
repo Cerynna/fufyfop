@@ -49,6 +49,10 @@ class Controller
                         $this->setRes($game->getGameResponse());
                         break;
                 }
+                if (!empty($context)){
+                    $this->setRes("lachatemicantare");
+                }
+
             }
             else {
                 $this->setRes("lachatemicantare");

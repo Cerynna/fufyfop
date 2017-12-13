@@ -38,13 +38,14 @@ class Controller
             {
                 switch ($action){
                     case 'jouer':
-                        $this->setResponse("jouer");
+                        $game = new GameController($json);
+                        $this->setResponse($game->getGameResponse());
                         break;
                     case 'commander':
                         $this->setResponse("commander");
                         break;
-                    case 'recette':
-                        $this->setResponse("recette");
+                    case 'podcast':
+                        $this->setResponse("podcast");
                         break;
                 }
             }

@@ -50,6 +50,8 @@ class FirebaseConnect
 
         $this->setDatabase($firebase->getDatabase());
 
+        return $this->database;
+
     }
 
     public function getData($path, &$list)
@@ -70,9 +72,9 @@ class FirebaseConnect
         if (!empty($verif)) {
             $this->database->getReference("user/$verif")
                 ->set($user);
-            return "UPDATE";
+            return $verif;
         } else {
-            $this->addUser($user);
+            return $this->addUser($user);
         }
 
     }
@@ -85,6 +87,8 @@ class FirebaseConnect
                 $user
             );
         $newPost->getValue();
+
+        return $newPost->getKey();
     }
 
 }

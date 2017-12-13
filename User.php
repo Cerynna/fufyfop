@@ -9,15 +9,17 @@
 class User
 {
 
-    private $id;
+    public $id;
 
-    private $last_use;
+    public $last_use;
 
-    private $last_action;
+    public $last_action;
 
-    private $commands;
+    public $commands;
 
-    private $geoloc;
+    public $geoloc;
+
+    public $game;
 
     /**
      * @return mixed
@@ -109,17 +111,41 @@ class User
         return $this;
     }
 
-public function __construct($user)
-{
-    (!empty($user['id'])) ? $this->setId($user['id']) : $this->setId(null);
-    (!empty($user['last_use'])) ? $this->setLastUse($user['last_use']) : $this->setLastUse(null);
-    (!empty($user['last_action'])) ? $this->setLastAction($user['last_action']) : $this->setLastAction(null);
-    (!empty($user['commands'])) ? $this->setCommands($user['commands']) : $this->setCommands(null);
-    (!empty($user['geoloc'])) ? $this->setGeoloc($user['geoloc']) : $this->setGeoloc(null);
+    /**
+     * @return mixed
+     */
+    public function getGame()
+    {
+        return $this->game;
+    }
 
-    return $this;
+    /**
+     * @param mixed $game
+     * @return User
+     */
+    public function setGame($game)
+    {
+        $this->game = $game;
+        return $this;
+    }
 
-}
+    public function getUser()
+    {
+        return $this;
+    }
+
+    public function __construct($user)
+    {
+        (!empty($user['id'])) ? $this->setId($user['id']) : $this->setId(null);
+        (!empty($user['last_use'])) ? $this->setLastUse($user['last_use']) : $this->setLastUse(null);
+        (!empty($user['last_action'])) ? $this->setLastAction($user['last_action']) : $this->setLastAction(null);
+        (!empty($user['commands'])) ? $this->setCommands($user['commands']) : $this->setCommands(null);
+        (!empty($user['geoloc'])) ? $this->setGeoloc($user['geoloc']) : $this->setGeoloc(null);
+        (!empty($user['game'])) ? $this->setGame($user['game']) : $this->setGame(null);
+
+        return $this;
+
+    }
 
 
 }

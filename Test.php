@@ -41,5 +41,7 @@ $testUser = new User($user);
 echo $testUser->getId();
 print_r($testUser->getCommands()) ;
 
+print_r(get_object_vars($testUser));
+
 
 //$test->addUser($user);

@@ -61,12 +61,10 @@ class FirebaseConnect
 
     public function updateUser($idUser, $user)
     {
-        $arrayUser = $this->database->getReference("user")->getValue();
-
-
+        $arrayUsers = $this->database->getReference("user")->getValue();
 
         $verif = "";
-        foreach ($arrayUser as $key => $userDB) {
+        foreach ($arrayUsers as $key => $userDB) {
             if ($userDB['id'] == $idUser) {
                 $verif = $key;
             }
@@ -74,6 +72,7 @@ class FirebaseConnect
         $arrayUser = $this->database->getReference("user/$verif")->getValue();
 
         $updateUser = new User($arrayUser);
+
         if (!empty($arrayUser['last_use'])){
             $updateUser->setLastUse($arrayUser['last_use']);
         }
@@ -100,6 +99,14 @@ class FirebaseConnect
             return $this->addUser($user);
         }
 
+    }
+    public function updateUserKey($key, $array)
+    {
+        return $this->database->getReference("user/$key")
+            ->set(
+                $array
+            )
+        ->getValue();
     }
 
     public function addUser($user)

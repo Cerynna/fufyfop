@@ -154,8 +154,6 @@ class User
         if (!empty($user['game'])){
             $this->setGame($user['game']);
         }
-
-
         return $this;
 
     }

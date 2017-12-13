@@ -68,15 +68,20 @@ class GameController
 
         if (count($questions) <= self::MAX_GAME) {
             $question = $this->getRandomQuestion();
-            if (count($questions) == 0)
+            if (count($questions) < 1)
             {
                 $database->getData("quizz/question/$question", $quest);
 
                 $this->setGameResponse($quest['question']);
+
+                array_push($questions, $question);
+                $user->setGame($questions);
+                $database->updateUserKey($key, get_object_vars($user));
             }
-            array_push($questions, $question);
-            $user->setGame($questions);
-            $database->updateUserKey($key, get_object_vars($user));
+            else {
+
+            }
+
 
         } else {
             $this->setGameResponse("Vous ne pouvez plus repondre a de question aujourd'hui");

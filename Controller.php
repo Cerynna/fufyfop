@@ -59,7 +59,7 @@ class Controller
 
             else {
 
-                $this->setRes("lachatemicantare " . $number);
+                $this->setRes("lachatemicantare " . json_decode($number) );
             }
 
         } else {

@@ -74,20 +74,7 @@ class GameController
         $this->setGameResponse("LOL");
 
         //verif firebase
-/**
- * [
- * question = [
- * 0 = idquestion
- * 1 = idquestion
- * 2 = idquestion
- * 3 =
- * 4 =
- * ]
- * nbQuestion = int
- * point = int
- *
- * ]
- */
+
 
 
     }

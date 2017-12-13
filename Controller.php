@@ -3,7 +3,7 @@
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-
+require 'GameController.php';
 
 /**
  * Created by PhpStorm.
@@ -36,9 +36,10 @@ class Controller
             if (!empty($action)) {
                 switch ($action) {
                     case 'jouer':
+                        $game = new GameController();
+                        $game->setGameResponse("wxbn");
 
-
-                        $this->setRes("sdfghn");
+                        $this->setRes($game->getGameResponse());
                         break;
                     case 'commander':
                         $this->setRes("commander");

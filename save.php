@@ -92,3 +92,24 @@ echo "Method not allowed";
 }
 */
 
+$questions = $user->getGame();
+
+if (count($questions) <= self::MAX_GAME) {
+    $question = $this->getRandomQuestion();
+    if (count($questions) < 1) {
+        $database->getData("quizz/question/$question", $quest);
+
+        $this->setGameResponse($key . " - " . $quest['question']);
+
+        array_push($questions, $question);
+        $user->setGame($questions);
+        $database->updateUserKey($key, get_object_vars($user));
+
+    } else {
+        $this->setGameResponse("Plus de 1");
+    }
+
+
+} else {
+    $this->setGameResponse("Vous ne pouvez plus repondre a de question aujourd'hui");
+}

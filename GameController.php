@@ -61,10 +61,17 @@ class GameController
             $questions = [ 0 => 1];
             array_push($questions, $question);
 
-            $user->setGame($questions);
+            $user->setGame(json_encode($questions));
             $user->setLastUse(new DateTime('now'));
             $database->addUser(get_object_vars($user));
+
+            $this->setGameResponse("Plus de 0");
         }
+        else {
+            $this->setGameResponse("Plus de 1");
+        }
+
+
 
 
 

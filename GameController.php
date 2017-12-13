@@ -52,14 +52,16 @@ class GameController
 
         $allQuery = strtolower($json->result->resolvedQuery);
 
+
         $pikachu = ["id" => $userID];
 
         $database = new FirebaseConnect();
         $key = $database->updateUser($userID, $pikachu);
-
+        /*echo $key;*/
         $database->getData("user/$key", $userDB);
-
+        /*print_r($userDB);*/
         $user = new User($userDB);
+
 
         $game = $user->getGame();
 
@@ -73,7 +75,7 @@ class GameController
             $user->setGame($game);
             $key = $database->updateUser($userID, get_object_vars($user) );
         }
-       $this->setGameResponse($key . " - " . implode('**', get_object_vars($user))  );
+       $this->setGameResponse($key . " - " . implode('**', get_object_vars($questions))  );
 
 
 

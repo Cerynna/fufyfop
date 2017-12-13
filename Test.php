@@ -38,10 +38,10 @@ $pikachu = ["id" => "ABwppHGUYsaqlBoMViA8-m6svBKOWHMhGJpwJqVE8irtS9OQO8nl8NV4IWA
 
 $database = new FirebaseConnect();
 $key = $database->updateUser("ABwppHGUYsaqlBoMViA8-m6svBKOWHMhGJpwJqVE8irtS9OQO8nl8NV4IWACdrjFYFD6mbimMDBhJ3356Quh", $pikachu);
-echo $key;
+/*echo $key;*/
 $database->getData("user/$key", $userDB);
-print_r($userDB);
+/*print_r($userDB);*/
 $user = new User($userDB);
 
-var_dump($user);
+/*var_dump($user);*/
 //$test->addUser($user);

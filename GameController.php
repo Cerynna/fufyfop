@@ -66,6 +66,8 @@ class GameController
 
             $user->setGame($questions);
             $user->setLastUse(new DateTime('now'));
+            $user->setLastAction("quizz");
+
             $database->addUser(get_object_vars($user));
 
             $database->getData("quizz/question/$question", $quest);
@@ -81,6 +83,7 @@ class GameController
 
                 $user->setGame($questions);
                 $user->setLastUse(new DateTime('now'));
+                $user->setLastAction("quizz");
                 $database->updateUser($key, $user);
 
                 $database->getData("quizz/question/$question", $quest);
@@ -93,6 +96,7 @@ class GameController
 
                     $user->setGame($game);
                     $user->setLastUse(new DateTime('now'));
+                    $user->setLastAction("quizz");
                     $database->updateUser($key, $user);
 
                     $database->getData("quizz/question/$question", $quest);

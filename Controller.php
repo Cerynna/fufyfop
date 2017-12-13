@@ -39,8 +39,9 @@ class Controller
             $action = strtolower($json->queryResult->parameters->action);
             $responsequizz = strtolower($json->queryResult->parameters->response_quizz);
 
+            $this->setRes("$context");
 
-            if (!empty($action)) {
+            /*if (!empty($action)) {
                 switch ($action) {
                     case 'jouer':
                         $game = new GameController($json);
@@ -48,7 +49,7 @@ class Controller
                         break;
                 }
             }
-            elseif ($context == "action_main-followup")
+            elseif ($context === "action_main-followup")
             {
                 $this->setRes("kqzrghpqetjh");
             }
@@ -65,7 +66,7 @@ class Controller
             }
         } else {
             $this->setRes("Vous n'etes pas en POST");
-        }
+        }*/
     }
 
     /**

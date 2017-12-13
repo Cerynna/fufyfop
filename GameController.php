@@ -60,6 +60,7 @@ class GameController
         /*echo $key;*/
         $database->getData("user/$key", $userDB);
         /*print_r($userDB);*/
+
         $user = new User($userDB);
 
         $questions = [];
@@ -70,6 +71,13 @@ class GameController
             ];
             array_push($game, $questions);
 
+            $user->setGame($questions);
+            $key = $database->updateUserKey($key, get_object_vars($user));
+        }
+        else {
+            $questions = $user->getGame();
+            $question = $this->getRandomQuestion();
+            array_push($game, $questions);
             $user->setGame($questions);
             $key = $database->updateUserKey($key, get_object_vars($user));
         }

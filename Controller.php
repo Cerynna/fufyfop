@@ -34,6 +34,7 @@ class Controller
             $allQuery = strtolower($json->queryResult->queryText);
 
             $context = strtolower($json->queryResult->outputContexts->name);
+            $number = strtolower($json->queryResult->outputContexts->parameters->number);
             $context = array_pop(explode('/',$context));
 
             $action = strtolower($json->queryResult->parameters->action);
@@ -48,18 +49,16 @@ class Controller
                         $game = new GameController($json);
                         $this->setRes($game->getGameResponse());
                         break;
-                    case 'action_main.action_main-selectnumber':
-                        $this->setRes("action_main.action_main-selectnumber");
-                        break;
                 }
                 if (!empty($context)){
-                    $this->setRes("lachatemicantare");
+
+                    $this->setRes("");
                 }
 
             }
 
             else {
-                $this->setRes("lachatemicantare");
+                $this->setRes("lachatemicantare $number");
             }
 
 

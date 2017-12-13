@@ -83,6 +83,15 @@ class GameController
                 $this->setGameResponse("VIDE");
             }
             else {
+
+
+                    array_push($game, $question);
+
+                $user->setGame(json_encode($game));
+                $user->setLastUse(new DateTime('now'));
+                $database->updateUser($key, $user);
+
+
                 $this->setGameResponse("PLEIN");
             }
         }

@@ -68,7 +68,7 @@ class GameController
 
         if (count($questions) <= self::MAX_GAME) {
             $question = $this->getRandomQuestion();
-            if (count($questions) === 0)
+            if (count($questions) == 0)
             {
                 $this->setGameResponse(implode(' ', $question));
             }

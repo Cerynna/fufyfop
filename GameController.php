@@ -98,6 +98,9 @@ class GameController
                     $database->getData("quizz/question/$question", $quest);
                     $this->setGameResponse($quest['question']);
                 }
+                else {
+                    $this->setGameResponse("Vous ne pouvez plus repondre a de question aujourd'hui");
+                }
 
 
 

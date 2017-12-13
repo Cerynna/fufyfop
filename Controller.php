@@ -33,7 +33,11 @@ class Controller
             $action = strtolower($json->result->parameters->action);
 
             if (!empty($action)) {
-                $this->setRes("Vous n'etes pas en $action");
+
+                if ($action == 'jouer') {
+                    $this->setRes("Vous n'etes pas en $action");
+                }
+
                 /*switch ($action) {
                     case 'jouer':
                         $game = new GameController($json);

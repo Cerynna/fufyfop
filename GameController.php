@@ -65,12 +65,17 @@ class GameController
 
 
             $questions = $user->getGame();
-            $question = $this->getRandomQuestion();
-            array_push($questions, $question);
-            $user->setGame($questions);
-            $key = $database->updateUserKey($key, get_object_vars($user));
 
-        $this->setGameResponse($key . " - " . implode('**', get_object_vars($user)));
+            if (count($questions) <= self::MAX_GAME)
+            {
+                $question = $this->getRandomQuestion();
+                array_push($questions, $question);
+                $user->setGame($questions);
+                $database->updateUserKey($key, get_object_vars($user));
+
+                $this->setGameResponse("LOL");
+            }
+
 
 
         //verif firebase

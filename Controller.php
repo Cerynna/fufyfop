@@ -55,14 +55,17 @@ class Controller
                 }
 
             } else {
+                $key = $database->getKeyUser($userID);
+                $database->getData("user/$key/game", $game);
+                $idGame = array_pop($game);
+                $database->getData("quizz/question/$idGame", $quizz);
 
                 if ($number == 1) {
-                    $key = $database->getKeyUser($userID);
 
-                    $this->setRes("Bonne reponse $key");
+                    $this->setRes($quizz['goodResponse']);
                 }
                 else {
-                    $this->setRes("mauvaise reponse ");
+                    $this->setRes($quizz['badResponse']);
                 }
             }
 

@@ -73,7 +73,7 @@ class GameController
             $user->setGame($game);
             $key = $database->updateUser($userID, get_object_vars($user) );
         }
-       $this->setGameResponse($key . " - " .  $userDB );
+       $this->setGameResponse($key . " - " . implode('**', $userDB)  );
 
 
 

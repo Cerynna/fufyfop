@@ -5,5 +5,9 @@ require 'Controller.php';
 
 $response = new Controller();
 
-print_r ($response->getResponse());
 
+$res = new \stdClass();
+$res->source = "webhook";
+$res->messages = $response->getResponse();
+$res->contextOut = array();
+echo json_encode($res);

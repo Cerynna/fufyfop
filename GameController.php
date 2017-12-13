@@ -71,7 +71,7 @@ class GameController
             $database->addUser(get_object_vars($user));
 
             $database->getData("quizz/question/$question", $quest);
-            $this->setGameResponse($quest['question']);
+            $this->setGameResponse($quest['question'] . PHP_EOL . "1 - " . $quest['good'] . "," . PHP_EOL . "ou" . PHP_EOL . "2 - " . $quest['false'] . "," );
         } else {
 
             $database->getData("user/$key/game", $game);
@@ -87,7 +87,7 @@ class GameController
                 $database->updateUser($key, $user);
 
                 $database->getData("quizz/question/$question", $quest);
-                $this->setGameResponse($quest['question']);
+                $this->setGameResponse($quest['question'] . PHP_EOL . "1 - " . $quest['good'] . "," . PHP_EOL . "ou" . PHP_EOL . "2 - " . $quest['false'] . "," );
             }
             else {
                 if (count($game) <= self::MAX_GAME)
@@ -100,7 +100,7 @@ class GameController
                     $database->updateUser($key, $user);
 
                     $database->getData("quizz/question/$question", $quest);
-                    $this->setGameResponse($quest['question'] . PHP_EOL . "1 - " . $quest['good'] . "," . PHP_EOL ."ou" . PHP_EOL . "2 - " . $quest['false'] . "," );
+                    $this->setGameResponse($quest['question'] . PHP_EOL . "1 - " . $quest['good'] . "," . PHP_EOL . "ou" . PHP_EOL . "2 - " . $quest['false'] . "," );
                 }
                 else {
                     $this->setGameResponse("Vous ne pouvez plus repondre a de question aujourd'hui");

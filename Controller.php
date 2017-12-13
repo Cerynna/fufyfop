@@ -37,6 +37,7 @@ class Controller
             $context = array_pop(explode('/',$context));
 
             $action = strtolower($json->queryResult->parameters->action);
+            $number = strtolower($json->queryResult->parameters->number);
             $responsequizz = strtolower($json->queryResult->parameters->response_quizz);
 
 
@@ -53,6 +54,10 @@ class Controller
                     $this->setRes("lachatemicantare");
                 }
 
+            }
+            elseif (!empty($number))
+            {
+                $this->setRes($number);
             }
             else {
                 $this->setRes("lachatemicantare");

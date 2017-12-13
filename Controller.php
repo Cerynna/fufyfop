@@ -59,7 +59,7 @@ class Controller
 
             else {
 
-                $this->setRes("lachatemicantare " . serialize( json_decode( json_encode($parameters['number']) )  )     );
+                $this->setRes("lachatemicantare " . json_decode( json_encode($parameters['number']) )      );
             }
 
         } else {

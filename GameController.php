@@ -71,7 +71,7 @@ class GameController
             array_push($game,$questions);
 
             $user->setGame($game);
-            $database->updateUser($userID, $user);
+            $database->updateUser($userID, get_object_vars($user) );
         }
        $this->setGameResponse("LOL");
 

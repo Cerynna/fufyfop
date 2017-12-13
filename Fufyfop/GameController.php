@@ -71,8 +71,7 @@ class GameController
             $user->setGame($game);
             $database->updateUser($userID, $user);
         }
-
-
+        return $this->setGameResponse("LOL");
 
         //verif firebase
 /**

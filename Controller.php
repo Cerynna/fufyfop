@@ -46,9 +46,9 @@ class Controller
                         break;
                 }
             } else {
-                if ($context == "action_main-followup")
+                if ($context === "action_main-followup")
                 {
-                    $this->setRes("CA FOLLOW");
+                    $this->setRes($context);
                 }
 
 

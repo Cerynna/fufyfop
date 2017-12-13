@@ -57,7 +57,7 @@ class GameController
         $database = new FirebaseConnect();
         $key = $database->updateUser($userID, $pikachu);
 
-        $database->getData("user/$userID", $userDB);
+        $database->getData("user/$key", $userDB);
 
         $user = new User($userDB);
 

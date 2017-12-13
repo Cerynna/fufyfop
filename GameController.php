@@ -7,7 +7,7 @@
  */
 
 
-class GameController extends Controller
+class GameController
 {
     const MAX_GAME = 5;
 

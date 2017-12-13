@@ -36,14 +36,12 @@ $userFake = [
 $pikachu = ["id" => "ABwppHGUYsaqlBoMViA8-m6svBKOWHMhGJpwJqVE8irtS9OQO8nl8NV4IWACdrjFYFD6mbimMDBhJ3356Quh"];
 
 $database = new FirebaseConnect();
-$key = $database->updateUser("ABwppHGUYsaqlBoMViA8-m6svBKOWHMhGJpwJqVE8irtS9OQO8nl8NV4IWACdrjFYFD6mbimMDBhJ3356Quh", $pikachu);
+$key = $database->getKeyUser('ABwppHGUYsaqlBoMViA8-m6svBKOWHMhGJpwJqVE8irtS9OQO8nl8NV4IWACdrjFYFD6mbimMDBhJ3356Quh');
 /*echo $key;*/
 $database->getData("user/$key", $userDB);
-/*print_r($userDB);*/
-$user = new User($userDB);
 
+print_r($userDB);
 
-$question = $this->getRandomQuestion();
 
 /*var_dump($user);*/
 //$test->addUser($user);

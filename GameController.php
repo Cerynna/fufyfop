@@ -50,12 +50,10 @@ class GameController
     {
         $userID = $json->originalRequest->data->user->userId;
 
-        $allQuery = strtolower($json->result->resolvedQuery);
-
-        $pikachu = ["id" => $userID];
 
         $database = new FirebaseConnect();
-        $key = $database->updateUser($userID, $pikachu);
+
+        $key = $database->getKeyUser($userID);
         /*echo $key;*/
         $database->getData("user/$key", $userDB);
         /*print_r($userDB);*/

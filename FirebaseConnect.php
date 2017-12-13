@@ -59,53 +59,37 @@ class FirebaseConnect
         return $list = $this->database->getReference("$path")->getValue();
     }
 
-    public function updateUser($idUser, $user)
+    public function getKeyUser($idUser)
     {
-        $arrayUsers = $this->database->getReference("user")->getValue();
 
+        $arrayUsers = $this->database->getReference("user")->getValue();
         foreach ($arrayUsers as $key => $userDB) {
             if ($userDB['id'] == $idUser) {
-                $verif = $key;
+                return $key;
             }
+            return false;
         }
-        $arrayUser = $this->database->getReference("user/$verif")->getValue();
-
-        $updateUser = new User($arrayUser);
-
-        if (!empty($arrayUser['last_use'])){
-            $updateUser->setLastUse($arrayUser['last_use']);
-        }
-        if (!empty($arrayUser['last_action'])){
-            $updateUser->setLastAction($arrayUser['last_action']);
-        }
-        if (!empty($arrayUser['commands'])){
-            $updateUser->setCommands($arrayUser['commands']);
-        }
-        if (!empty($arrayUser['geoloc'])){
-            $updateUser->setGeoloc($arrayUser['geoloc']);
-        }
-        if (!empty($arrayUser['game'])){
-            $updateUser->setGame($arrayUser['game']);
-        }
-
-        if (!empty($verif)) {
-            $this->database->getReference("user/$verif")
-                ->set(
-                    get_object_vars($updateUser)
-                );
-            return $verif;
-        } else {
-            return $this->addUser($user);
-        }
-
+        return false;
     }
+
+    public function updateUser($key, $user)
+    {
+        $this->database->getReference("user/$key")
+            ->set(
+                get_object_vars($user)
+            );
+        return true;
+    }
+
+
+
     public function updateUserKey($key, $array)
     {
         return $this->database->getReference("user/$key")
             ->set(
                 $array
             )
-        ->getValue();
+            ->getValue();
     }
 
     public function addUser($user)

@@ -46,7 +46,7 @@ class GameController
 
     public function __construct($json)
     {
-       $userID = $json->originalRequest->data->user->userId;
+       /*$userID = $json->originalRequest->data->user->userId;
 
         $allQuery = strtolower($json->result->resolvedQuery);
 
@@ -70,7 +70,7 @@ class GameController
 
             $user->setGame($game);
             $database->updateUser($userID, $user);
-        }
+        }*/
        $this->setGameResponse("LOL");
 
 

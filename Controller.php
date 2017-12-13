@@ -42,7 +42,10 @@ class Controller
 
 
             if (!empty($action)) {
-
+            if (!empty($number))
+                {
+                $this->setRes($number);
+            }
             //action_main-followup
                 switch ($action) {
                     case 'jouer':
@@ -55,10 +58,7 @@ class Controller
                 }
 
             }
-            elseif (!empty($number))
-            {
-                $this->setRes($number);
-            }
+
             else {
                 $this->setRes("lachatemicantare");
             }

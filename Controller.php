@@ -35,8 +35,9 @@ class Controller
             if (!empty($action)) {
                 switch ($action) {
                     case 'jouer':
+                        $game = new GameController($json);
 
-                        $this->setRes("GAME jouer");
+                        $this->setRes($game->getGameResponse());
                         break;
                     case 'commander':
                         $this->setRes("commander");

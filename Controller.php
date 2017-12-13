@@ -38,7 +38,7 @@ class Controller
 
             $action = strtolower($json->queryResult->parameters->action);
 
-            $number = $json->queryResult->outputContexts->parameters->number;
+            $number = json_decode($json->queryResult->outputContexts->parameters->number) ;
 
             $responsequizz = strtolower($json->queryResult->parameters->response_quizz);
 

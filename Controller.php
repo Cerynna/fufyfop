@@ -37,6 +37,8 @@ class Controller
             $context = array_pop(explode('/',$context));
 
             $action = strtolower($json->queryResult->parameters->action);
+            $responsequizz = strtolower($json->queryResult->parameters->response_quizz);
+
 
             if (!empty($action)) {
                 switch ($action) {
@@ -45,12 +47,14 @@ class Controller
                         $this->setRes($game->getGameResponse());
                         break;
                 }
-            } else {
+            }
+            elseif(!empty($responsequizz))
+            {
+                $this->setRes("qremdjbhqeobhj");
+            }
+            else {
 
-                    $this->setRes($context);
-
-
-
+                    $this->setRes("iycfjuygujh");
 
 
             }

@@ -70,7 +70,7 @@ class GameController
             $question = $this->getRandomQuestion();
             if (count($questions) == 0)
             {
-                $this->setGameResponse($question['question']);
+                $this->setGameResponse($question);
             }
             array_push($questions, $question);
             $user->setGame($questions);

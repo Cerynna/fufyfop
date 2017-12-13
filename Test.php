@@ -42,19 +42,8 @@ $database->getData("user/$key", $userDB);
 /*print_r($userDB);*/
 $user = new User($userDB);
 
-if (!isset($user->game) or empty($user->game)) {
 
-    $user->setGame([
-        0 => 1
-    ]);
-
-}
-
-var_dump(get_object_vars($user));
-
-$key = $database->updateUserKey($key, get_object_vars($user));
-
-var_dump($key);
+$question = $this->getRandomQuestion();
 
 /*var_dump($user);*/
 //$test->addUser($user);

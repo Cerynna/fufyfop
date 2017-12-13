@@ -112,11 +112,26 @@ class Controller
 
     public function makeRes()
     {
+        $myResponse = $this->getRes();
 
-        $response = new \stdClass();
-        $response->source = "webhook";
-        $response->fulfillmentText = $this->getRes();
-        return json_encode($response);
+        if(is_array($myResponse)){
+            foreach ($myResponse as $oneReponse){
+                $response = new \stdClass();
+                $response->source = "webhook";
+                $response->fulfillmentText = $oneReponse;
+                return json_encode($response);
+            }
+
+        }
+        else {
+            $response = new \stdClass();
+            $response->source = "webhook";
+            $response->fulfillmentText = $myResponse;
+            return json_encode($response);
+        }
+
+
+
     }
 
 }

@@ -4,13 +4,12 @@
 require "FirebaseConnect.php";
 require "User.php";
 
-$test = new FirebaseConnect();
 
 
 //print_r($test->updateUser('ABwppHGUYsaqlBoMViA8-m6svBKOWHMhGJpwJqVE8irtS9OQO8nl8NV4IWACdrjFYFD6mbimMDBhJ3356Quh', ''));
 
 
-$user = [
+$userFake = [
 /*    "id" => "ABwppHGUYsaqlBoMViA8-m6svBKOWHMhGJpwJqVE8irtS9OQO8nl8NV4IWACdrjFYFD6mbimMDBhJ3356Quh",*/
 /*    "last_use" => new DateTime("now"),//datetime*/
     "last_action" => "",//action
@@ -35,13 +34,14 @@ $user = [
 
 ];
 
+$pikachu = ["id" => "ABwppHGUYsaqlBoMViA8-m6svBKOWHMhGJpwJqVE8irtS9OQO8nl8NV4IWACdrjFYFD6mbimMDBhJ3356Quh"];
 
-$testUser = new User($user);
+$database = new FirebaseConnect();
+$key = $database->updateUser("ABwppHGUYsaqlBoMViA8-m6svBKOWHMhGJpwJqVE8irtS9OQO8nl8NV4IWACdrjFYFD6mbimMDBhJ3356Quh", $pikachu);
+echo $key;
+$database->getData("user/$key", $userDB);
+print_r($userDB);
+$user = new User($userDB);
 
-echo $testUser->getId();
-print_r($testUser->getCommands()) ;
-
-print_r(get_object_vars($testUser));
-
-
+var_dump($user);
 //$test->addUser($user);

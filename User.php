@@ -136,12 +136,25 @@ class User
 
     public function __construct($user)
     {
-        (!empty($user['id'])) ? $this->setId($user['id']) : $this->setId(null);
-        (!empty($user['last_use'])) ? $this->setLastUse($user['last_use']) : $this->setLastUse(null);
-        (!empty($user['last_action'])) ? $this->setLastAction($user['last_action']) : $this->setLastAction(null);
-        (!empty($user['commands'])) ? $this->setCommands($user['commands']) : $this->setCommands(null);
-        (!empty($user['geoloc'])) ? $this->setGeoloc($user['geoloc']) : $this->setGeoloc(null);
-        (!empty($user['game'])) ? $this->setGame($user['game']) : $this->setGame(null);
+        if (!empty($user['id'])) {
+            $this->setId($user['id']);
+        }
+        if (!empty($user['last_use'])){
+            $this->setLastUse($user['last_use']);
+        }
+        if (!empty($user['last_action'])){
+            $this->setLastAction($user['last_action']);
+        }
+        if (!empty($user['commands'])){
+            $this->setCommands($user['commands']);
+        }
+        if (!empty($user['geoloc'])){
+            $this->setGeoloc($user['geoloc']);
+        }
+        if (!empty($user['game'])){
+            $this->setGame($user['game']);
+        }
+
 
         return $this;
 

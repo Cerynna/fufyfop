@@ -63,15 +63,38 @@ class FirebaseConnect
     {
         $arrayUser = $this->database->getReference("user")->getValue();
 
+
+
         $verif = "";
         foreach ($arrayUser as $key => $userDB) {
             if ($userDB['id'] == $idUser) {
                 $verif = $key;
             }
         }
+        $arrayUser = $this->database->getReference("user/$verif")->getValue();
+
+        $updateUser = new User($arrayUser);
+        if (!empty($arrayUser['last_use'])){
+            $updateUser->setLastUse($arrayUser['last_use']);
+        }
+        if (!empty($arrayUser['last_action'])){
+            $updateUser->setLastAction($arrayUser['last_action']);
+        }
+        if (!empty($arrayUser['commands'])){
+            $updateUser->setCommands($arrayUser['commands']);
+        }
+        if (!empty($arrayUser['geoloc'])){
+            $updateUser->setGeoloc($arrayUser['geoloc']);
+        }
+        if (!empty($arrayUser['game'])){
+            $updateUser->setGame($arrayUser['game']);
+        }
+
         if (!empty($verif)) {
             $this->database->getReference("user/$verif")
-                ->set($user);
+                ->set(
+                    get_object_vars($updateUser)
+                );
             return $verif;
         } else {
             return $this->addUser($user);

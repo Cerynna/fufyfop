@@ -58,7 +58,7 @@ class Controller
             }
 
             else {
-                $this->setRes("lachatemicantare $number");
+                $this->setRes("lachatemicantare " . serialize($number));
             }
 
 

@@ -40,7 +40,6 @@ class Controller
 
             $number = json_decode($json->queryResult->parameters->number);
 
-            $responsequizz = strtolower($json->queryResult->parameters->response_quizz);
 
             if (!empty($action)) {
                 //action_main-followup
@@ -50,15 +49,14 @@ class Controller
                         $this->setRes($game->getGameResponse());
                         break;
                 }
-                if (!empty($context)) {
-
-                    $this->setRes("");
-                }
 
             } else {
 
                 if ($number == 1) {
-                    $this->setRes("IJUSTCALLTOSAYILOVEYOU ");
+                    $this->setRes("Bonne reponse ");
+                }
+                else {
+                    $this->setRes("mauvaise reponse ");
                 }
             }
 

@@ -10,14 +10,12 @@ use Symfony\Component\HttpFoundation\Response;
  * Date: 12/12/17
  * Time: 17:51
  */
-
 class Controller
 {
 
     private $request;
 
     private $response;
-
 
 
     public function __construct()
@@ -34,9 +32,8 @@ class Controller
             $allQuery = strtolower($json->result->resolvedQuery);
             $action = strtolower($json->result->parameters->action);
 
-            if (!empty($action))
-            {
-                switch ($action){
+            if (!empty($action)) {
+                switch ($action) {
                     case 'jouer':
                         $game = new GameController($json);
                         $this->setResponse($game->getGameResponse());
@@ -48,12 +45,10 @@ class Controller
                         $this->setResponse("podcast");
                         break;
                 }
-            }
-            else{
+            } else {
                 $this->setResponse($allQuery);
             }
-        }
-        else {
+        } else {
             $this->setResponse("Vous n'etes pas en POST");
         }
     }
@@ -94,6 +89,22 @@ class Controller
         return $this;
     }
 
+    public function makeResponse()
+    {
+        $messages = [];
+        array_push($messages, array(
+                "type" => "simple_response",
+                "platform" => "google",
+                "textToSpeech" => "qdfbsroibh"
+            )
+        );
 
+
+        $response = new \stdClass();
+        $response->source = "webhook";
+        $response->messages = $messages;
+        $response->contextOut = array();
+        return json_encode($response);
+    }
 
 }

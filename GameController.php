@@ -57,7 +57,11 @@ class GameController
         if ($key == false) {
             $user = new User('');
             $user->setId($userID);
-            $user->setGame(get_object_vars([$question]));
+
+            $questions = [];
+            array_push($questions, $question);
+
+            $user->setGame($questions);
             $user->setLastUse(new DateTime('now'));
             $database->addUser(get_object_vars($user));
         }

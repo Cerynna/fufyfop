@@ -36,20 +36,20 @@ class Controller
                 switch ($action) {
                     case 'jouer':
                         $game = new GameController($json);
-                        $this->setResponse("jouer");
+                        return $this->setResponse("jouer");
                         break;
                     case 'commander':
-                        $this->setResponse("commander");
+                        return $this->setResponse("commander");
                         break;
                     case 'podcast':
-                        $this->setResponse("podcast");
+                        return $this->setResponse("podcast");
                         break;
                 }
             } else {
-                $this->setResponse($allQuery);
+                return $this->setResponse($allQuery);
             }
         } else {
-            $this->setResponse("Vous n'etes pas en POST");
+            return $this->setResponse("Vous n'etes pas en POST");
         }
     }
 

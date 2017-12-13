@@ -57,7 +57,8 @@ class Controller
 
             } else {
 
-                if (in_array('1', $parameters->number)) {
+                $arrayobj = new ArrayObject([$parameters->number]);
+                if (in_array('1', $arrayobj->getArrayCopy())) {
                     $this->setRes("IJUSTCALLTOSAYILOVEYOU ");
                 }
             }

@@ -69,6 +69,7 @@ class GameController
         } else {
 
             $database->getData("user/$key/game", $game);
+
             if(empty($game))
             {
                 $this->setGameResponse("VIDE");
@@ -76,8 +77,6 @@ class GameController
             else {
                 $this->setGameResponse("PLEIN");
             }
-
-            $this->setGameResponse("Plus de 1");
         }
 
 

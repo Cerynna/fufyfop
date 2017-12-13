@@ -11,7 +11,7 @@ require 'User.php';
 
 class GameController
 {
-    const MAX_GAME = 10;
+    const MAX_GAME = 100;
 
     /**
      * @var string

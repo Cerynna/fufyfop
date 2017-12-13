@@ -30,8 +30,8 @@ class Controller
             $requestBody = file_get_contents('php://input');
             $json = json_decode($requestBody);
 
-            $allQuery = strtolower($json->result->resolvedQuery);
-            $action = strtolower($json->result->parameters->action);
+            $allQuery = strtolower($json->queryResult->queryText);
+            $action = strtolower($json->queryResult->parameters->action);
 
             if (!empty($action)) {
                 switch ($action) {

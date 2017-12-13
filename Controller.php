@@ -95,9 +95,9 @@ class Controller
     {
         $messages = [];
         array_push($messages, array(
-                "type" => "simple_response",
-                "platform" => "google",
-                "textToSpeech" => $this->getRes(),
+                "textToSpeech" => "simple_response",
+                "ssml" => "google",
+                "displayText" => $this->getRes(),
             )
         );
 
@@ -105,8 +105,7 @@ class Controller
 
         $response = new \stdClass();
         $response->source = "webhook";
-        $response->fulfillmentMessages->simpleResponses->textToSpeech = "Salut";
-        $response->fulfillmentMessages->simpleResponses->displayText = "Salut";
+        $response->fulfillmentMessages->simpleResponses = $messages;
         return json_encode($response);
     }
 

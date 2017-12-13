@@ -104,4 +104,10 @@ class FirebaseConnect
         return $newPost->getKey();
     }
 
+    public function getRandomQuestion()
+    {
+        $this->database->getData("/quizz/question", $questions);
+        return array_rand($questions);
+    }
+
 }

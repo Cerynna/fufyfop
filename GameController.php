@@ -74,6 +74,7 @@ class GameController
             $database->addUser(get_object_vars($user));
 
             $database->getData("quizz/question/$question", $quest);
+
             $this->setGameResponse($quest['question'] . PHP_EOL . "1 - " . $quest['good'] . PHP_EOL . "ou, " . PHP_EOL . "2 - " . $quest['false'] );
         } else {
 
@@ -120,7 +121,7 @@ class GameController
 
     }
 
-    private function getRandomQuestion()
+    public function getRandomQuestion()
     {
         $db = new FirebaseConnect();
         $db->getData("/quizz/question", $questions);

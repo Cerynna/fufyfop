@@ -61,8 +61,23 @@ class Controller
                 $database->getData("quizz/question/$idGame", $quizz);
 
                 if ($number == 1) {
+                    $newQuizz = $database->getRandomQuestion();
+                    if ($newQuizz == 0) {
+                        $newQuizz = 1;
+                    }
 
-                    $this->setRes($quizz['goodResponse']);
+                    array_push($game, $newQuizz);
+
+                    $user = new User('');
+                    $user->setId($userID);
+                    $user->setGame($game);
+                    $user->setLastUse(new DateTime('now'));
+                    $user->setLastAction("quizz");
+
+                    $database->addUser(get_object_vars($user));
+
+
+                    $this->setRes([$quizz['goodResponse'], ]);
                 }
                 else {
                     $this->setRes($quizz['badResponse']);

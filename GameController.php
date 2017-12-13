@@ -57,7 +57,7 @@ class GameController
         if ($key == false) {
             $user = new User('');
             $user->setId($userID);
-            $user->setGame($question);
+            $user->setGame([$question]);
             $user->setLastUse(new DateTime('now'));
             $database->addUser(get_object_vars($user));
         }

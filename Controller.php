@@ -38,7 +38,7 @@ class Controller
 
             $action = strtolower($json->queryResult->parameters->action);
 
-            $parameters = json_decode($json->queryResult->outputContexts->parameters);
+            $number = json_decode($json->queryResult->parameters->number);
 
             $responsequizz = strtolower($json->queryResult->parameters->response_quizz);
 
@@ -57,7 +57,7 @@ class Controller
 
             } else {
 
-                if (in_array(1, $parameters->number)) {
+                if ($number == 1) {
                     $this->setRes("IJUSTCALLTOSAYILOVEYOU ");
                 }
             }

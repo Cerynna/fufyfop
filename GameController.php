@@ -50,13 +50,14 @@ class GameController
     {
         $userID = $json->originalRequest->data->user->userId;
 
+        $user = new User('');
+        $user->setId($userID);
+
         $database = new FirebaseConnect();
         $question = $this->getRandomQuestion();
 
         $key = $database->getKeyUser($userID);
         if ($key == false) {
-            $user = new User('');
-            $user->setId($userID);
 
             $questions = [];
             array_push($questions, $question);
@@ -72,6 +73,13 @@ class GameController
 
             if(empty($game))
             {
+                $questions = [];
+                array_push($questions, $question);
+
+                $user->setGame(json_encode($questions));
+                $user->setLastUse(new DateTime('now'));
+                $database->updateUser($key, $user);
+
                 $this->setGameResponse("VIDE");
             }
             else {

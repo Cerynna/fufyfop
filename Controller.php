@@ -100,12 +100,7 @@ class Controller
                 "textToSpeech" => $this->getRes(),
             )
         );
-        array_push($messages, array(
-                "type" => "simple_response",
-                "platform" => "google",
-                "textToSpeech" => $this->getRes(),
-            )
-        );
+
 
 
         $response = new \stdClass();

@@ -11,7 +11,7 @@ require 'User.php';
 
 class GameController
 {
-    const MAX_GAME = 5;
+    const MAX_GAME = 4;
 
     /**
      * @var string
@@ -64,18 +64,21 @@ class GameController
         $user = new User($userDB);
 
 
-            $questions = $user->getGame();
+        $questions = $user->getGame();
 
-            if (count($questions) <= self::MAX_GAME)
+        if (count($questions) <= self::MAX_GAME) {
+            $question = $this->getRandomQuestion();
+            if (count($questions) === 0)
             {
-                $question = $this->getRandomQuestion();
-                array_push($questions, $question);
-                $user->setGame($questions);
-                $database->updateUserKey($key, get_object_vars($user));
-
-                $this->setGameResponse("LOL");
+                $this->setGameResponse(implode(' ', $question));
             }
+            array_push($questions, $question);
+            $user->setGame($questions);
+            $database->updateUserKey($key, get_object_vars($user));
 
+        } else {
+            $this->setGameResponse("Vous ne pouvez plus repondre a de question aujourd'hui");
+        }
 
 
         //verif firebase

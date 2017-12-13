@@ -37,10 +37,12 @@ class Controller
             $context = array_pop(explode('/',$context));
 
             $action = strtolower($json->queryResult->parameters->action);
-            $number = strtolower($json->queryResult->parameters->number);
+
+            $number = strtolower($json->queryResult->parameters->number[]);
+
             $responsequizz = strtolower($json->queryResult->parameters->response_quizz);
 
-
+[]
             if (!empty($action)) {
             //action_main-followup
                 switch ($action) {

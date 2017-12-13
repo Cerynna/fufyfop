@@ -32,24 +32,28 @@ class Controller
             file_put_contents('inJSON.json',$json);
 
             $allQuery = strtolower($json->queryResult->queryText);
+
+            $context = strtolower($json->queryResult->outputContexts->name);
+            $context = array_pop(explode('/',$context));
+
             $action = strtolower($json->queryResult->parameters->action);
 
             if (!empty($action)) {
                 switch ($action) {
                     case 'jouer':
                         $game = new GameController($json);
-
                         $this->setRes($game->getGameResponse());
-                        break;
-                    case 'commander':
-                        $this->setRes("commander");
-                        break;
-                    case 'podcast':
-                        $this->setRes("podcast");
                         break;
                 }
             } else {
-                $this->setRes($allQuery);
+                if ($context == "action_main-followup")
+                {
+                    $this->setRes("CA FOLLOW");
+                }
+
+
+
+
             }
         } else {
             $this->setRes("Vous n'etes pas en POST");

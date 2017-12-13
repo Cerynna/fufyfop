@@ -58,9 +58,9 @@ class Controller
             }
 
             else {
-                $this->setRes("lachatemicantare " . implode('',$number));
+                $numberimplode = implode('', $number);
+                $this->setRes("lachatemicantare " . $numberimplode);
             }
-
 
         } else {
             $this->setRes("Vous n'etes pas en POST");

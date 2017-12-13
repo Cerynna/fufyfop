@@ -63,7 +63,6 @@ class FirebaseConnect
     {
         $arrayUsers = $this->database->getReference("user")->getValue();
 
-        $verif = "";
         foreach ($arrayUsers as $key => $userDB) {
             if ($userDB['id'] == $idUser) {
                 $verif = $key;

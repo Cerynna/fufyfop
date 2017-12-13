@@ -16,6 +16,8 @@ class Controller
 
     private $request;
 
+    private $response;
+
 
 
     public function __construct()
@@ -36,19 +38,22 @@ class Controller
             {
                 switch ($action){
                     case 'jouer':
-
+                        $this->setResponse("jouer");
                         break;
                     case 'commander':
-
+                        $this->setResponse("commander");
                         break;
                     case 'recette':
-
+                        $this->setResponse("recette");
                         break;
                 }
             }
             else{
-                return $allQuery;
+                $this->setResponse($allQuery);
             }
+        }
+        else {
+            $this->setResponse("Vous n'etes pas en POST");
         }
     }
 
@@ -67,6 +72,24 @@ class Controller
     public function setRequest($request)
     {
         $this->request = $request;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getResponse()
+    {
+        return $this->response;
+    }
+
+    /**
+     * @param mixed $response
+     * @return Controller
+     */
+    public function setResponse($response)
+    {
+        $this->response = $response;
         return $this;
     }
 

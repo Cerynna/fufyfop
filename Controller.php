@@ -107,7 +107,9 @@ class Controller
         $response->source = "webhook";
 
         $response->fulfillmentText = "Salut les petits PD";
-        $response->fulfillmentMessages['simpleResponses'] = json_decode( json_encode($messages) );
+        $response->fulfillmentMessages->simpleResponses->textToSpeech = "fdghdgj";
+        $response->fulfillmentMessages->simpleResponses->ssml = "fdghdgj";
+        $response->fulfillmentMessages->simpleResponses->displayText = "fdghdgj";
         return json_encode($response);
     }
 

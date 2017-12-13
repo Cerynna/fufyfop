@@ -39,7 +39,7 @@ class Controller
             $action = strtolower($json->queryResult->parameters->action);
             $responsequizz = strtolower($json->queryResult->parameters->response_quizz);
 
-            $this->setRes("$context");
+            $this->setRes(serialize($context) );
 
             /*if (!empty($action)) {
 

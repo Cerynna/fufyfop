@@ -29,7 +29,7 @@ class Controller
 
             $requestBody = file_get_contents('php://input');
             $json = json_decode($requestBody);
-            file_put_contents('test.json',$json);
+            file_put_contents('inJSON.json',$json);
 
             $allQuery = strtolower($json->queryResult->queryText);
             $action = strtolower($json->queryResult->parameters->action);

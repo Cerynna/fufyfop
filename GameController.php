@@ -55,6 +55,9 @@ class GameController
 
         $database = new FirebaseConnect();
         $question = $this->getRandomQuestion();
+        if ($question == 0) {
+            $question = 1;
+        }
 
         $key = $database->getKeyUser($userID);
 
@@ -124,11 +127,6 @@ class GameController
         return array_rand($questions);
     }
 
-    private function createQuizz()
-    {
-
-
-    }
 
     /**
      * @return string

@@ -22,6 +22,7 @@ class Controller
     public function __construct()
     {
         $database = new FirebaseConnect();
+
         $request = Request::createFromGlobals();
 
         $method = $request->server->get('REQUEST_METHOD');
